@@ -1,0 +1,15 @@
+{
+	"id": "88f2c3f2-f84c-4d65-82db-24d359d1bd9e",
+	"values": [
+		{
+			"key": "host",
+			"value": "http://ec2-54-226-67-174.compute-1.amazonaws.com:8000",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-11-15T06:31:40.137Z",
+	"_postman_exported_using": "Postman/11.19.0"
+}

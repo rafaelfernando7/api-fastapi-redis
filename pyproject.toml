@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fastapi-redis-lab"
+version = "0.1.0"
+description = ""
+authors = ["Rafael Araujo"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.1"
+uvicorn = "^0.21.1"
+Jinja2 = "^3.1.2"
+redis = "^5.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

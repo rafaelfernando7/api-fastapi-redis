@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "34214758-d9b8-45fb-8546-998c2ade6303",
+		"name": "api-redis-lab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2949554"
+	},
+	"item": [
+		{
+			"name": "create question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"question_id\" : \"18\",\r\n   \"question_text\" : \"O que significa o numero 110?\",\r\n   \"correct_alternative\": \"C\",\r\n   \"question_alternatives\": {\r\n    \"A\": \"teste 99\",\r\n    \"B\": \"teste 100\",\r\n    \"C\": \"teste 110\",\r\n    \"D\": \"teste 120\"\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/quiz/1/question",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get question by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/question/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"question",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"quiz_id\" : \"1\",\r\n   \"quiz_name\" : \"quiz teste 1\",\r\n   \"quiz_limit_time\" : 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/quiz",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get quiz by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user_id\": \"150\",\r\n   \"vote_alternative\": \"B\",\r\n   \"vote_time\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/quiz/1/question/3/vote",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"question",
+						"3",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_correct_by_student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_correct_by_student",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_correct_by_student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_fast_by_student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_fast_by_student",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_fast_by_student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_correct_and_fast_by_student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_correct_and_fast_by_student",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_correct_and_fast_by_student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/average_time_by_question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/average_time_by_question",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"average_time_by_question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_invalid_vote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_invalid_vote",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_invalid_vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_correct_question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_correct_question",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_correct_question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/analytics/most_voted_alternative_by_question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/quiz/1/analytics/most_voted_alternative_by_question",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"quiz",
+						"1",
+						"analytics",
+						"most_voted_alternative_by_question"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
