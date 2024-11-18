@@ -31,7 +31,7 @@ obs: se estiver rodando na nuvem adicionar a entrada de trafego na porta 8000 no
 
 6- adicionar host na variavel de ambiente global "host" no seguinte formato http://{{host}}:8000
 
-7- Sequencia de funcionamento da API
+## Sequencia de funcionamento da API
 
 1- Criar quiz na rota -> POST {{host}}/quiz
 body:
