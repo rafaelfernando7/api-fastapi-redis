@@ -3,14 +3,8 @@
 
 encadeamento da pasta
 
-.
-├── app
-│   ├── __init__.py
-│   └── main.py
-│   └── redis_client.py
-├── Dockerfile
-└── docker-compose.yaml
-└── pyproject.toml
+![image](https://github.com/user-attachments/assets/1c2c787e-d3c6-44f5-b06b-24fe985b90fa)
+
 
 obs: se estiver rodando na nuvem adicionar a entrada de trafego na porta 8000 no grupo de segurança
 
