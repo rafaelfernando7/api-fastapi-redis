@@ -1,0 +1,65 @@
+Estrutura de dados REDIS
+
+Entidade: Quiz
+Tipo: HASH
+Chave -> quiz:{quiz_id}
+Valor:
+name
+quiz_limit_time
+
+Entidade: Questões
+Tipo: JSON
+Chave -> quiz:{quiz_id}:question:{question_id}
+Valor:
+{
+   "question_id" : 1,
+   "question_text" : "Qual a capital da frança?",
+   "correct_alternative": "A",
+   "question_alternatives": {
+    "A": "Paris",
+    "B": "Roma",
+    "C": "Londres",
+    "D": "Berlim"
+   }
+}
+
+Indice: idx:quiz_question
+(
+    TextField('$.question_text', as_name = "text"),
+    TextField('$.correct_alternative', as_name = "correct"),
+    NumericField('$.question_id', as_name = "question"),
+    NumericField('$.correct_votes', as_name = "correctv"),
+    NumericField('$.invalid_votes', as_name = "invalidv")
+)
+
+Entidade: Questões Votos
+Tipo: JSON
+Chave -> quiz:{quiz_id}:votes:question:{question_id}
+Tempo de expiração: 30 dias
+Valor:
+{
+    "A": 1,
+    "B": 3,
+    "C": 4,
+    "D": 2
+}
+
+Estidade Usuários Votos
+Tipo: JSON
+Chave: quiz:{quiz_id}:list_votes:{user_id}:question:{question_id}
+Tempo de expiração: 30 dias
+Valor:
+{
+   "user_id": "150",
+   "vote_alternative": "B",
+   "vote_time": 15
+}
+
+Indice: idx:user_vote
+schema = (
+    NumericField('$.user_id', as_name = "user"),
+    NumericField('$.question_id', as_name = "question"),
+    NumericField('$.vote_time', as_name = "time"),
+    NumericField('$.is_correct', as_name = "iscorrect"),
+    TextField('$.vote_alternative', as_name = "alternative")
+)
