@@ -2,6 +2,7 @@ import os
 import json
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional
 from fastapi.encoders import jsonable_encoder
 
 from app.redis_client import RedisClient
@@ -37,7 +38,7 @@ class Question(BaseModel):
 class Quiz(BaseModel):
     quiz_id: int
     quiz_name: str
-    quiz_limit_time: int
+    quiz_limit_time: Optional[int]
     
     
 @app.get("/")
@@ -49,9 +50,14 @@ def hello_world():
 def create_quiz(quiz: Quiz):
     if redis_client.conn.hget("quiz:"+str(quiz.quiz_id), "quiz_name") is not None:
         return {"message": "Quiz already exists."}
+
+    quiz_limit_time = 20
+    
+    if bool(quiz.quiz_limit_time) != False:
+            quiz_limit_time = quiz.quiz_limit_time
         
     try:
-        redis_client.conn.hset(f'quiz:{quiz.quiz_id}', mapping={"name": quiz.quiz_name, "limit_time": quiz.quiz_limit_time})
+        redis_client.conn.hset(f'quiz:{quiz.quiz_id}', mapping={"name": quiz.quiz_name, "limit_time": quiz_limit_time})
     except Exception as e:
         return e
     

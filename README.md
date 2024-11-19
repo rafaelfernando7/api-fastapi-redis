@@ -72,3 +72,7 @@ body:
 11- Você pode visualizar o ranking de alunos com maior acertos na rota -> GET {{host}}/quiz/1{{quiz_id}}/analytics/most_correct_by_student
 
 12- Você pode visualizar o ranking de alunos mais rapidos na rota -> GET {{host}}/quiz/1{{quiz_id}}/analytics/most_fast_by_student
+
+## Testes
+
+Para executar testes você pode executar o comando python generate_data.py dentro da pasta app e usar o postman com as collections importadas para testar/validar os dados.
